@@ -37,7 +37,7 @@ This flexibility enables building intelligent chatbots that always respond based
 1. **Clone this repository:**
 
 ```
-https://github.com/SiddharthDaryani/RAG-model-gemini.git
+git clone https://github.com/SiddharthDaryani/RAG-model-gemini.git
 cd RAG-model-gemini
 ```
 
@@ -45,7 +45,7 @@ cd RAG-model-gemini
 2. **Run the setup script:**
 
 ```
-source init.setup
+source init_setup.sh
 ```
 
 This will create a virtual environment, install all dependencies, and prepare your environment.
