@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Gemini RAG QA</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2em; }
+        #question-section, #answer-section { display: none; margin-top: 1em; }
+        label { display: block; margin-bottom: 0.5em; }
+        textarea, input { width: 100%; padding: 0.5em; margin-bottom: 1em; }
+        button { padding: 0.6em 1.2em; }
+    </style>
+</head>
+<body>
+
+<h1>Gemini RAG Question Answering</h1>
+
+<div id="url-section">
+    <label for="urls">Enter URLs (comma separated):</label>
+    <textarea id="urls" rows="4" placeholder="https://example.com, https://another.com"></textarea>
+    <button id="submit-urls">Next</button>
+</div>
+
+<div id="question-section">
+    <label for="question">Enter your question:</label>
+    <input type="text" id="question" placeholder="Ask your question here" />
+    <button id="submit-question">Get Answer</button>
+</div>
+
+<div id="answer-section">
+    <h2>Answer:</h2>
+    <div id="answer"></div>
+</div>
+
+<script>
+    const urlSection = document.getElementById("url-section");
+    const questionSection = document.getElementById("question-section");
+    const answerSection = document.getElementById("answer-section");
+
+    let storedUrls = [];
+
+    document.getElementById("submit-urls").onclick = () => {
+        const urlsInput = document.getElementById("urls").value.trim();
+        if (!urlsInput) {
+            alert("Please enter at least one URL.");
+            return;
+        }
+        storedUrls = urlsInput.split(",").map(u => u.trim()).filter(u => u !== "");
+        if (storedUrls.length === 0) {
+            alert("Please enter at least one valid URL.");
+            return;
+        }
+        urlSection.style.display = "none";
+        questionSection.style.display = "block";
+    };
+
+    document.getElementById("submit-question").onclick = async () => {
+        const question = document.getElementById("question").value.trim();
+        if (!question) {
+            alert("Please enter a question.");
+            return;
+        }
+
+        questionSection.style.display = "none";
+        answerSection.style.display = "block";
+        document.getElementById("answer").innerText = "Generating answer... please wait.";
+
+        try {
+            const response = await fetch("/ask", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ urls: storedUrls, question: question })
+            });
+
+            if (!response.ok) {
+                throw new Error(`Server error: ${response.statusText}`);
+            }
+            const data = await response.json();
+            document.getElementById("answer").innerText = data.answer || "No answer received.";
+        } catch (error) {
+            document.getElementById("answer").innerText = `Error: ${error.message}`;
+        }
+    };
+</script>
+
+</body>
+</html>
