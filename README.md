@@ -3,9 +3,10 @@
 Welcome to the **Gemini RAG** project! This system lets you ask questions based on the content of URLs using a Retrieval-Augmented Generation (RAG) pipeline powered by Google's Gemini model. It fetches, processes, and indexes web pages, then answers your natural language queries referencing only that context.
 
 ---
+![Alt text](./Poster.png)
 ## 💡 Use Case
 
-This **Gemini RAG Question Answering** model is highly versatile — it can be integrated with *any* external document or web page context, making it an excellent foundation for building **context-driven chatbots** or AI assistants.
+This **Gemini RAG Question Answering** model is highly versatile it can be integrated with *any* external document or web page context, making it an excellent foundation for building **context-driven chatbots** or AI assistants.
 
 By feeding the system custom URLs or knowledge bases, you empower it to answer questions grounded strictly in your provided context, creating tailored and reliable conversational agents for:
 
