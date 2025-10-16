@@ -29,7 +29,7 @@ prompt = hub.pull("rlm/rag-prompt")
 
 def initialize_gemini_client():
     llm = init_chat_model("gemini-2.5-flash", model_provider="google_genai")
-    embeddings = GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-001")
+    embeddings = GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-004")
     vector_store = InMemoryVectorStore(embeddings)
     return llm, embeddings, vector_store
 
