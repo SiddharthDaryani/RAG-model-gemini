@@ -41,21 +41,20 @@ git clone https://github.com/SiddharthDaryani/RAG-model-gemini.git
 cd RAG-model-gemini
 ```
 
+2. **Add your API keys:**
 
-2. **Run the setup script:**
+### Create a `.env` file in the project root with your credentials:
+
+### GOOGLE_API_KEY=your_google_api_key_here
+### USER_AGENT=RAG-model/1.0 (your_email@example.com)
+
+3. **Run the setup script:**
 
 ```
 source init_setup.sh
 ```
 
 This will create a virtual environment, install all dependencies, and prepare your environment.
-
-3. **Add your API keys:**
-
-### Create a `.env` file in the project root with your credentials:
-
-### GOOGLE_API_KEY=your_google_api_key_here
-### USER_AGENT=RAG-model/1.0 (your_email@example.com)
 
 
 4. **Open your browser and visit:**
