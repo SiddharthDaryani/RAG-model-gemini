@@ -72,7 +72,3 @@ http://127.0.0.1:8000/
 ### ✉️ siddharthdaryani49@gmail.com
 ### [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://in.linkedin.com/in/siddharth-daryani-4339b31b9)
 
-
----
-
-Happy querying! 🤖✨
